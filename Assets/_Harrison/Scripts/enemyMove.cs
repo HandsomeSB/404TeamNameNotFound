@@ -19,13 +19,15 @@ public class owner
 
 public class enemyMove : MonoBehaviour
 {
-    Vector3 velocity = new Vector3(-1f, 0f, 0f);
+    public Vector3 velocity = new Vector3(-1f, 0f, 0f);
+    public float speed = 1f;
     // Start is called before the first frame update
     void Start()
     {
-        owner MrV = new owner();//every variable of a class is a point to the "new" class, except for struct. Struct is passed by value not by pointer, a copy of the data. Struct is a little faster
+        //owner MrV = new owner();//every variable of a class is a point to the "new" class, except for struct. Struct is passed by value not by pointer, a copy of the data. Struct is a little faster
         //MrV.V.x += 1;
         //MrV.V = new a(); Error
+        velocity = transform.forward;
     }
 
     // Update is called once per frame
@@ -33,6 +35,8 @@ public class enemyMove : MonoBehaviour
     {
         //transform.position += velocity * Time.deltaTime;
         //transform.position.x += 1; Error because position is return as a value, x is a copy of the position, not the pointer to the actual position
-        GetComponent<Rigidbody>().velocity = velocity;
+        GetComponent<Rigidbody>().velocity = velocity * speed;
     }
 }
+
+

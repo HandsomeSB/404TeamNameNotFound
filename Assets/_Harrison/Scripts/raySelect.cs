@@ -19,9 +19,9 @@ public class raySelect : MonoBehaviour
     void stuff(){
         Debug.Log("hi u suck");
     }
-
+    RaycastHit hit = new RaycastHit();
     void createRay(){
-      RaycastHit hit = new RaycastHit();
+      
       //LayerMask ignoreRay = LayerMask.GetMask("ignore Raycast");
       Physics.Raycast(transform.position, transform.forward, out hit);//, Mathf.Infinity, ignoreRay);
       if(marker){
@@ -71,9 +71,9 @@ public class raySelect : MonoBehaviour
       keyMap[KeyCode.R] = ()=> {
           keyPressedForTowerState(rayState.ball, prefabMarker1);
       };
-        keyMap[KeyCode.Mouse0] = () =>
+       keyMap[KeyCode.Mouse0] = () =>
         {
-            if (marker)
+            if (marker && hit.collider.GetComponent<pathNode.pathMark>() == null)
             {
                 GameObject copy = Instantiate(marker);
                 resetMarkerState();
