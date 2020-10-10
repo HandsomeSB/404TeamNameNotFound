@@ -76,11 +76,15 @@ public class raySelect : MonoBehaviour
             if (marker)
             {
                 GameObject copy = Instantiate(marker);
+                resetMarkerState();
                 copy.GetComponent<rotator>().enabled = true;
+                copy.GetComponentInChildren<towerTrigger>().enabled = true;
+                copy.GetComponent<cubeTowerShoot>().enabled = true;
+
                 //TODO create feature to upgrade towers
                 //TODO partical effects when new tower is created
                 //TODO play sounds when tower created
-                
+
             }
             
         };

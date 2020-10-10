@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 1152272849580149680}
   - component: {fileID: 1152272849580149687}
   - component: {fileID: 4601579002571495049}
+  - component: {fileID: 3630456743358161079}
   m_Layer: 0
   m_Name: cubeTower
   m_TagString: Untagged
@@ -173,6 +174,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d06b939f16b46719df25431ca423e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3630456743358161079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152272849580149686}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486791ef222204b30bc213c017334f6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeTower: {fileID: 1152272849580149686}
+  fireRate: 1
+  damage: 30
 --- !u!1 &5044841517536184783
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,8 +241,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5044841517536184783}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38bdf9797cf2c4cef80595c739d6f7ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
