@@ -22,8 +22,12 @@ public class cubeTowerShoot : MonoBehaviour
         {
             target = cubeTower.GetComponentInChildren<towerTrigger>().target;
         }
+        else
+        {
+            target = null;
+        }
         timePastedBetweenFire += Time.deltaTime;
-        if(timePastedBetweenFire >= fireRate)
+        if(timePastedBetweenFire >= fireRate && target)
         {
             target.GetComponent<enemyHealth>().currentHealth -= damage;
             timePastedBetweenFire = 0f;
