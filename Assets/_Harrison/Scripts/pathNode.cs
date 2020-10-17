@@ -5,21 +5,21 @@ using NS;
 
 public class pathNode : MonoBehaviour
 {
-    public pathNode[] next;
+    public List<pathNode> next;
     private Lines.Wire[] wire;
 
     private GameObject[] path;
     // Start is called before the first frame update
     void Start()
     {
-        wire = new Lines.Wire[next.Length];
-        path = new GameObject[next.Length];
+        wire = new Lines.Wire[next.Count];
+        path = new GameObject[next.Count];
         for(int i = 0; i < wire.Length; i++)
         {
             wire[i] = Lines.MakeForcedUnregistered();
         }
         
-        for(int i = 0; i < next.Length; i++)
+        for(int i = 0; i < next.Count; i++)
         {
             path[i] = GameObject.CreatePrimitive(PrimitiveType.Cube);
             Vector3 delta = next[i].transform.position - this.transform.position;
@@ -45,7 +45,7 @@ public class pathNode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for(int i = 0; i < next.Length; i++)
+        for(int i = 0; i < next.Count; i++)
         {
             if (next[i])
             {
@@ -62,9 +62,9 @@ public class pathNode : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         enemyMove e = other.GetComponent<enemyMove>();
-        if (e && next.Length != 0)
+        if (e && next.Count != 0)
         {
-            int nextIndex = Random.Range(0, next.Length);
+            int nextIndex = Random.Range(0, next.Count);
             pathNode n = next[nextIndex];
             Vector3 delta = n.transform.position - e.transform.position;//normalized
             float distance = Mathf.Sqrt(delta.x * delta.x + delta.y * delta.y + delta.z * delta.z);
