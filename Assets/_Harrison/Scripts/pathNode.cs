@@ -25,7 +25,7 @@ public class pathNode : MonoBehaviour
             Vector3 delta = next[i].transform.position - this.transform.position;
             float distance = Mathf.Sqrt(delta.x * delta.x + delta.y * delta.y + delta.z * delta.z);
             Vector3 direction = new Vector3(delta.x / distance, delta.y / distance, delta.z / distance);
-            path[i].transform.position = this.transform.position + delta / 2;
+            path[i].transform.position = this.transform.position + delta / 2 + Vector3.down;
             path[i].transform.rotation = Quaternion.LookRotation(direction);
             path[i].transform.localScale = new Vector3(1, 0.1f, distance);
             path[i].GetComponent<BoxCollider>().isTrigger = true;

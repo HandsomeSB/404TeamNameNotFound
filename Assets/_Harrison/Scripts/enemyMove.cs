@@ -20,7 +20,7 @@ public class owner
 public class enemyMove : MonoBehaviour
 {
     public Vector3 velocity = new Vector3(-1f, 0f, 0f);
-    public float speed = 1f;
+    public float speed = 5f;
     // Start is called before the first frame update
     void Start()
     {
